@@ -6,6 +6,7 @@ import com.infogalaxy.springchatapp.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
@@ -32,6 +33,14 @@ public class GreetingService implements IGreetingService {
     public Greeting getGreetingById(long id) {
         //findById() for getting data on ID condition
         Greeting greeting = greetingRepository.findById(id).orElse(new Greeting());
+
         return greeting;
+    }
+
+    //Access all greeting messages from database
+    @Override
+    public List<Greeting> getAllGretings() {
+        System.out.println(greetingRepository.findAll().toString());
+        return greetingRepository.findAll();
     }
 }

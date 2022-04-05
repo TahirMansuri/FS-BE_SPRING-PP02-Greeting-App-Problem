@@ -43,4 +43,12 @@ public class Greeting {
         this.message = message;
     }
 
+
+    @Override
+    public String toString() {
+        return "Greeting{" +
+                "counter=" + counter +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }

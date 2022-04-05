@@ -6,6 +6,8 @@ import com.infogalaxy.springchatapp.service.IGreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 //Rest Controller for Handling all Greeting Message and Generate JSON Response
 
 @RestController
@@ -36,6 +38,14 @@ public class GreetingController {
     @RequestMapping("/getgreeting")
     public Greeting getGreeting(@RequestParam int id) {
         return greetingService.getGreetingById(id);
+    }
+
+
+    //Get All Greetings from Database
+    //URL - http://localhost:8080/greeting/allgreetings
+    @RequestMapping("/allgreetings")
+    public List<Greeting> getAllGreetings() {
+        return greetingService.getAllGretings();
     }
 
     //Mapping greeting with URL to generate the Bean Response in JSON Format
