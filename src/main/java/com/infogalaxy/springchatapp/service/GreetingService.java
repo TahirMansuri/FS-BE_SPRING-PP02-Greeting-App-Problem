@@ -43,4 +43,16 @@ public class GreetingService implements IGreetingService {
         System.out.println(greetingRepository.findAll().toString());
         return greetingRepository.findAll();
     }
+
+    //Getting all greeting messages from database whose ID greater then 3
+    @Override
+    public List<Greeting> getAllGretingsGT3(long counter) {
+        return greetingRepository.findByCounterGreaterThan(counter);
+    }
+
+    //Deleting the Greeting By ID
+    @Override
+    public void deleteGreeting(long id) {
+        greetingRepository.deleteById(id);
+    }
 }

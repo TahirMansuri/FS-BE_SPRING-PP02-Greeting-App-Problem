@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface GreetingRepository extends JpaRepository<Greeting,Long> {
     //List<Greeting> findAllBy();
+    List<Greeting> findByCounterGreaterThan(long counter);
 }

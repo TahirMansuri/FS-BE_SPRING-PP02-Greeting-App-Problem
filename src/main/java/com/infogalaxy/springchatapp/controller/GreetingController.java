@@ -48,6 +48,20 @@ public class GreetingController {
         return greetingService.getAllGretings();
     }
 
+    //Get Greeting Messages whose ID is Greater than 3
+    @RequestMapping("/allgreetinggt3")
+    public List<Greeting> getGreetingGT3(@RequestParam(value="id") long id) {
+        return greetingService.getAllGretingsGT3(id);
+    }
+
+
+    //Deleteing the Greeting By ID
+    //URL - http://localhost:8080/greeting/deletegreeting/?id=3
+    @RequestMapping("/deletegreeting")
+    public String deleteGreeting(@RequestParam(value="id") long id){
+        greetingService.deleteGreeting(id);
+        return "Greeting with ID :"+id+" Deleted.";
+    }
     //Mapping greeting with URL to generate the Bean Response in JSON Format
     //URL - http://localhost:8080/greeting/?name=Tahir
 //    @RequestMapping(value={"","/"})

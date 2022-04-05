@@ -9,4 +9,6 @@ public interface IGreetingService {
     Greeting addGreeting(User user);
     Greeting getGreetingById(long id);
     List<Greeting> getAllGretings();
+    List<Greeting> getAllGretingsGT3(long id);
+    void deleteGreeting(long id);
 }
